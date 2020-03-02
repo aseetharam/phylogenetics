@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -q bioinformatics
+#PBS -l walltime=48:00:00
+#PBS -l nodes=1:ppn=2
+#PBS -N ProtTest
+cd $PBS_O_WORKDIR
+module use /apps/group/bioinformatics/modules
+module load java
+java -jar prottest-3.3.jar -i FcC_smatrix.phy -o test_results.txt -Dayhoff -WAG -JTT -VT -Blosum62 -DCMut -all -all-distributions -F -S 1 -AIC -BIC -AICC -DT -threads 2

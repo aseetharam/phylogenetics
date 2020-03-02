@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -q bioinformatics
+#PBS -l walltime=48:00:00
+#PBS -l nodes=1:ppn=8
+#PBS -N MrBayes
+cd $PBS_O_WORKDIR
+module use /apps/group/bioinformatics/modules
+module load mrbayes
+mpirun -n 8 mb FcC_smatrix2.nex

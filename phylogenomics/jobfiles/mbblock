@@ -1,0 +1,13 @@
+Begin mrbayes;
+
+    log start filename=test_log.txt;
+    set autoclose=yes;
+    prset aamodelpr=fixed(jones);
+    lset rates=invgamma;
+    prset statefreqpr=fixed(empirical);
+    mcmc ngen=100000 samplefreq=100 printfreq=100 nchains=4 savebrlens=yes;
+    sump burnin=12500;
+    sumt burnin=12500;
+    log stop;
+
+END; 
